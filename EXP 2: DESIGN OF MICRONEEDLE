@@ -1,0 +1,42 @@
+AIM:
+To model a microneedle using COMSOL and analyze its structural behavior under applied load.
+SOFTWARE REQUIRED:
+COMSOL Multiphysics
+PROCEDURE:
+Model Wizard:
+    Select 3D
+    Select Physics → Solid Mechanics
+    Click Add
+    Select Study → Stationary
+    Click Done
+GEOMETRY 1
+    Set Length unit = µm
+CONE (MICRONEEDLE TIP)
+    Right-click Geometry → Cone
+    Height = 600 µm
+    Base radius = 150 µm
+    Top radius = 5 µm
+    Click Build All
+CYLINDER (BASE SUPPORT)
+    Right-click Geometry → Cylinder
+    Height = 200 µm
+    Radius = 150 µm
+    Position below the cone
+    Click Build All
+MATERIALS
+    Add Material → Built-in → Silicon
+    Apply to geometry
+SOLID MECHANICS
+  FIXED CONSTRAINT
+    Select bottom face of cylinder → Fixed
+  BOUNDARY LOAD
+    Select tip of microneedle
+    Apply force = 0.001 N (example)
+MESH
+    Right-click Mesh → Free Tetrahedral
+    Click Build Mesh
+STUDY
+    Click Compute
+
+RESULT:
+    The stress and displacement distribution of the microneedle under applied load are successfully obtained.
